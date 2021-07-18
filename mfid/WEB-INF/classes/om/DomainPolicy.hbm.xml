@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="DomainPolicy"
+		table="domain_policy"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="domain_policy_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="DomainPolicyName"
+			column="domain_policy_name"
+			type="string"
+			not-null="false"
+			length="150"
+		/>
+		<property
+			name="DomainPolicyFlag"
+			column="domain_policy_flag"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+	
+
+		<set name="Domains" inverse="true">
+			<key column="domain_policy_id"/>
+			<one-to-many class="Domain"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

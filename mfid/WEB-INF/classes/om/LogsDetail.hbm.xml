@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="LogsDetail"
+		table="logs_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="log_Id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="AppId"
+			column="app_Id"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="Response"
+			column="response"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="RequestTime"
+			column="request_time"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="Otp"
+			column="otp"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="Ip"
+			column="ip"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="Role"
+			column="role"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="LogsType"
+			column="logs_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="TokenSerial"
+			column="token_serial"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		
+		<property
+			name="Reason"
+			column="reason"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

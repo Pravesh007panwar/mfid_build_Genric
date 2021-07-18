@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="BioEnrollment"
+		table="bio_enrollment"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="bio_enrollment_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="BioEnrollmentLicenseId"
+			column="bio_enrollment_license_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="BioEnrollmentSystemName"
+			column="bio_enrollment_system_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BioEnrollmentTime"
+			column="bio_enrollment_time"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

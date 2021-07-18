@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+<!-- <constant name="struts.enable.DynamicMethodInvocation" value="false" 
+		/> -->
+
+    <constant name="struts.convention.result.path" value="/"></constant>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.multipart.maxSize" value="1022776216" />
+	<!-- <package name="mfid" namespace="/" extends="json-default"> -->
+	<package name="mfid" namespace="/" extends="struts-default,json-default"
+		strict-method-invocation="false">
+		
+		
+	<!-- Interceptors -->	
+		
+		  <interceptors>
+	<interceptor name="tokenHandler" class="com.mfid.common.interceptor.SessionInterceptor"/>
+	<interceptor-stack name="authStack">
+			<interceptor-ref name="tokenHandler"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+</interceptors>
+
+<default-interceptor-ref name="authStack"></default-interceptor-ref> 
+
+
+
+		<!-- Login Module Entry Start -->
+
+		<!-- <action name=""> <result name="success">pages/downloadPage.jsp</result> 
+			</action> -->
+
+		<action name="download" class="com.mfid.web.actions.report.DownloadAction">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="rakesh_report.pdf"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+
+		<action name="login_*" method="{1}"
+			class="com.mfid.web.actions.admin.LoginAction">
+
+			<result name="showLoginPage">/common/login.jsp</result>
+
+			<result name="showDashboardPage">/common/dashboard.jsp</result>
+			<result name="showLoginAgain" type="redirectAction">
+				<param name="actionName">login_showLogin</param>
+				<param name="parse">true</param>
+			</result>
+			<result name="showDashboardPageAgain" type="redirectAction">
+				<param name="actionName">login_showDashboardAgain</param>
+				<param name="parse">true</param>
+			</result>
+
+		</action>
+
+
+	<action name="secureLogin_*" method="{1}" class="com.mfid.web.actions.admin.SecureLoginAction">
+	<result name="success">/test1.jsp</result>
+	<result name="showSecureLoginPage">/common/secureLogin.jsp</result>
+	<result name="showSecureDashboardPage">/common/secureDashboard.jsp</result>
+	<result name="showDownLoadFile" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">1024</param>
+	 </result>
+	
+	</action>
+
+		<!-- Admin Module Entry Start -->
+
+
+		<action name="admin_*" method="{1}"
+			class="com.mfid.web.actions.admin.AdminPanelAction">
+			<result name="showProperties">/admin/showProperties.jsp</result>
+			<result name="showPush">/admin/showPush.jsp</result>
+			<result name="showRedis">/admin/showRedis.jsp</result>
+			<result name="showSapTransaction">/admin/transaction.jsp</result>
+			<result name="showTransactionMapping">/admin/transactionMapping.jsp</result>
+			<result name="showInsertGeoFile">/admin/showInsertGeoFile.jsp</result>
+			<result name="showInsertBlacklistIpFile">/admin/showInsertBlacklistIpFile.jsp</result>
+			<result name="showResync">/admin/showResync.jsp</result>
+			<result name="showchangepassword">/admin/showchangepassword.jsp</result>
+			<result name="showsecurechangepassword">/admin/showsecurechangepassword.jsp</result>
+			<result name="sessionout">/common/index.jsp</result>
+			<result name="showmyaccount">/admin/myaccount.jsp</result>
+			<result name="showManageRadius">/admin/manageradius.jsp</result>
+			<result name="showManageUser">/admin/manageuser.jsp</result>
+			<result name="showManageAdministration">/admin/administration.jsp</result>
+			<result name="showImportUser">/admin/importuser.jsp</result>
+			<result name="showModifyDatabaseConnection">/admin/modifydatabaseconnection.jsp</result>
+			<result name="showActivateMobileToken">/admin/showActivateMobileTokens.jsp</result>
+			<result name="showSecureQRCode">/admin/showSecureQRCode.jsp</result>
+			<result name="showManageActiveDevice">/admin/showManageActiveDevice.jsp</result>
+			<result name="showManageWifiDevice">/admin/showManageWifiDevice.jsp</result>
+			<result name="showUserContryPolicy">/admin/showUserContryPolicy.jsp</result>
+			<result name="sessionoutsecure">/common/indexSecure.jsp</result>
+			<result name="showMailTemplate">/admin/showMailTemplate.jsp</result>
+			<result name="showUserDeviceDetails">/admin/showUserDeviceDetails.jsp</result>
+			<result name="showLDAPUserSearch">/admin/ldapUserSearch.jsp</result>
+			<result name="showTiles">/admin/showTiles.jsp</result>
+			<result name="showCustomAuthInfo">/admin/showCustomAuth.jsp</result>
+			<result name="u2fRegistration">/admin/register.jsp</result>
+			<result name="showU2FRegistration">/admin/showU2FRegistration.jsp</result>
+			<result name="authenticateForm">/admin/authenticate.jsp</result>
+			<result name="successU2f">/admin/success.jsp</result>
+			<result name="showU2fRegistrationForm">/admin/showU2fRegistrationForm.jsp</result>
+			<result name="showManageWhiteListedDevices">/admin/manageWhiteListed.jsp</result>
+			<result name="showUserWhiteListedDevice">/admin/showUserWhiteListedDevice.jsp</result>
+	        <result name="showResetPassword">/admin/showResetPassword.jsp</result>
+			
+			<result name="whitelistedDevicesInserted" type="redirectAction">
+			<param name="actionName">admin_showManageWhiteListed</param>
+			<param name="status">${result}</param>
+			</result>
+			
+			
+			
+			
+			<result name="register" type="redirectAction">
+			<param name="actionName">admin_showU2fRegistrationForm</param>
+			</result>
+			
+			<result name="secureRegister" type="redirectAction">
+			<param name="actionName">admin_showU2FRegistration</param>
+			</result>
+			
+			<result name="showSecureLoginAgain" type="redirectAction">
+				<param name="actionName">secureLogin_showSecureLogin</param>
+				<param name="parse">true</param>
+			</result>
+			
+			<result name="success">/test1.jsp</result>
+
+		</action>
+
+		<!-- Token module Entry -->
+		<action name="token_*" method="{1}"
+			class="com.mfid.web.actions.admin.TokenAction">
+
+			<result name="showTokenManager">/admin/managetoken.jsp</result>
+			<result name="sessionout">/common/index.jsp</result>
+		</action>
+
+		<action name="GetDomainAction" class="com.mfid.web.actions.admin.LoginAction"
+			method="displayDomainList">
+			<result type="json" />
+
+		</action>
+	
+		
+
+		<action name="ApplicationMFIDAction" class="com.mfid.web.actions.admin.LoginAction"
+			method="displayApplicationList">
+			<result type="json" />
+
+		</action>
+		
+		<action name="DisplayAppList" class="com.mfid.web.actions.admin.LoginAction"
+			method="displayAppList">
+			<result type="json" />
+
+		</action>
+
+		<action name="userLogin" class="com.mfid.web.actions.admin.LoginAction"
+			method="validateLogin">
+			<result type="json" />
+
+		</action>
+
+		<!-- Login Module Entry End -->
+
+		<!-- Report Module Entry Start -->
+
+		<action name="report_*" method="{1}"
+			class="com.mfid.web.actions.report.TokenStockReportAction">
+
+			<result name="runUnassignedTokenStockDetailReport">/report/UnAssignedTokenStockDetailReport.jsp
+			</result>
+
+		</action>
+
+		<action name="TokenStockReportAction"
+			class="com.mfid.web.actions.report.TokenStockReportAction" method="executeReport">
+			<result type="json" />
+
+		</action>
+
+		<!-- Report Module Entry End -->
+		<action name="logout_*" method="{1}"
+			class="com.mfid.web.actions.admin.LogoutAction">
+		<result name="invalidRequest">/error.jsp</result>
+
+			<result name="showLoginAgain" type="redirectAction">
+				<param name="actionName">login_showLogin</param>
+				<param name="parse">true</param>
+			</result>
+			<result name="showSecureLoginAgain" type="redirectAction">
+				<param name="actionName">secureLogin_showSecureLogin</param>
+				<param name="parse">true</param>
+			</result>
+
+		</action>
+
+
+
+		<!-- otp Match Web Service Entry -->
+		<action name="otp_*" method="{1}"
+			class="com.mfid.web.url.actions.OTPMFIDMatchAction">
+
+			<result name="showMatchPage">/matchpage.jsp</result>
+			<result name="success">/test1.jsp</result>
+
+			<result name="OtpSuccess" type="redirect">${target}?randString=${randString}
+			</result>
+			<result name="failure" type="redirect">${src}?result=${result}</result>
+			<result name="otpError">/test/otperror.jsp</result>
+
+			<result name="google" type="redirect">https://www.google.com/accounts/ServiceLoginAuth?ltmpl=default&amp;ltmplcache=2&amp;continue=http://mail.google.com/mail/?ui=html&amp;zy=l&amp;service=mail&amp;rm=false&amp;dsh=-3206648964051179044&amp;ltmpl=default&amp;ltmpl=default&amp;scc=1&amp;GALX=eRbc0R52Gts&amp;rmShown=1&amp;Email=${uniqueId}&amp;Passwd=${password}
+			</result>
+		</action>
+
+
+		<!-- otp Match Web Service Entry END -->
+
+		<!-- REQUEST Web Service Entry -->
+		<action name="requestSession_*" method="{1}"
+			class="com.mfid.web.url.actions.RequestMFIDSessionAction">
+			<result name="success">/test1.jsp</result>
+			<result name="show_otp">/showotp.jsp</result>
+		</action>
+		<!-- REQUEST Web Service Entry END -->
+
+
+		<action name="report_*" method="{1}"
+			class="com.mfid.web.actions.admin.ReportPanelAction">
+			<result name="showCountryViolationReport">/report/showCountryViolationReport.jsp</result>
+			<result name="showNeverUserAuthenticationReport">/report/neverUseAuthenticationReport.jsp</result>
+			<result name="showAllDomainTokenDetailReport">/report/allDomainTokenReport.jsp</result>
+			<result name="showTurnAroundTimeReport">/report/turnAroundTimeReport.jsp</result>
+			<result name="showUserAttemptReportInitial">/report/userAttemptsReport.jsp</result>
+			<result name="showLockedUnlockedUsersRreport">/report/lockedUnlockedUserReport.jsp</result>
+			<result name="showDenyByCountryReport">/report/showDenyByCountryReport.jsp</result>
+			<result name="showDenyByUserReport">/report/showDenyByUserReport.jsp</result>
+			<result name="showUserEnrollmentReport">/report/showUserEnrollmentReport.jsp</result>
+			<result name="showBioEnrollmentReport">/report/showBioEnrollment.jsp</result>			
+			<result name="showUserSummaryReport">/report/showUserSummaryReport.jsp</result>
+			<result name="showTokenStockReport">/report/showTokenStockReport.jsp</result>
+			<result name="showAuthenticationReport">/report/showAuthenticationReport.jsp</result>
+			<result name="showTokenExpiryReport">/report/showTokenExpiryReport.jsp</result>
+			<result name="showUsersLogReport">/report/showUsersLogReport.jsp</result>
+			<result name="showAdminLogReport">/report/showAdminLogsReport.jsp</result>
+			<result name="showCountryLogReport">/report/showCountryLogsReport.jsp</result>
+			<result name="showSchedulerLogReport">/report/showSchedulerLogsReport.jsp</result>
+			<result name="showLoginPage">/common/index.jsp</result>
+			<result name="success">/test1.jsp</result>
+			<result name="showDeviceDetailsReport">/report/showDeviceDetailsReport.jsp</result>
+			<result name="showDaAdminLogReport">/report/showDaAdminLogReport.jsp</result>
+		</action>
+
+		<action name="policy_*" method="{1}"
+			class="com.mfid.web.actions.admin.PolicyAction">
+			<result name="sessionout">/common/index.jsp</result>
+			<result name="showCommonPolicy">/admin/commonPolicy.jsp</result>
+			<result name="showHardOfflinePolicy">/admin/hardofflinePolicy.jsp</result>
+			<result name="showTokenRevalidationPolicy">/admin/tokenRevalidationPolicy.jsp</result>
+			<result name="showEmergencyPolicy">/admin/emergencyPolicy.jsp</result>
+			<result name="showIPPolicy">/admin/ipPolicy.jsp</result>
+			<result name="showNTPolicy">/admin/ntPolicy.jsp</result>
+			<result name="showCountryPolicy">/admin/countryPolicy.jsp</result>
+			<result name="showTokenActivationPolicy">/admin/tokenActivationPolicy.jsp</result>
+			<result name="showLockOutAttemptPolicy">/admin/lockOutAttemptPolicy.jsp</result>
+			<result name="showAssignPolicy">/admin/assignPolicy.jsp</result>
+			<result name="showAssignCountryPolicy">/admin/assignCountryPolicy.jsp</result>
+			<result name="showCountryViolationPolicy">/admin/showCountryViolationPolicy.jsp</result>
+
+
+		</action>
+
+		<action name="reportgen_*" method="{1}"
+			class="com.mfid.web.actions.report.GenReportPanelAction">
+			<result name="download_tokenstock" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">fileInputStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+			<result  name="showLoginPage">/common/index.jsp</result>
+			
+		</action>
+
+
+		<action name="m*" method="{1}"
+			class="com.mfid.web.url.actions.NewRequestMFIDSessionAction">
+			<result name="success">/test1.jsp</result>
+			<result name="show_otp">/showotp.jsp</result>
+		</action>
+		
+	    <action name="user" >
+    		<result type="redirect">/secureLogin_showSecureLogin.action</result>
+    		
+		</action>
+	</package>
+
+</struts>

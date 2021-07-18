@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="Domain"
+		table="domain"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="domain_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="DomainName"
+			column="domain_name"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="HardTokenQuantity"
+			column="hard_token_quantity"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="BioTokenQuantity"
+			column="bio_token_quantity"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="MobileTokenQuantity"
+			column="mobile_token_quantity"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="SmsTokenQuantity"
+			column="sms_token_quantity"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="PushTokenQuantity"
+			column="push_token_quantity"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DomainFlag"
+			column="domain_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<many-to-one
+			name="DomainPolicy"
+			column="domain_policy_id"
+			class="DomainPolicy"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="DataSource"
+			column="data_source_id"
+			class="DataSource"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="TokenLimit"
+			column="token_limit_id"
+			class="TokenLimit"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="Organisation"
+			column="organisation_id"
+			class="Organisation"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="UserDetails" inverse="true">
+			<key column="domain_id"/>
+			<one-to-many class="UserDetail"/>
+		</set>
+
+		<set name="Schedulars" inverse="true">
+			<key column="domain_id"/>
+			<one-to-many class="Schedular"/>
+		</set>
+
+		<set name="UserDetailSyncs" inverse="true">
+			<key column="domain_id"/>
+			<one-to-many class="UserDetailSync"/>
+		</set>
+
+		<set name="Tokens" inverse="true">
+			<key column="domain_id"/>
+			<one-to-many class="Token"/>
+		</set>
+
+		<set name="Applications" inverse="true">
+			<key column="domain_id"/>
+			<one-to-many class="Application"/>
+		</set>
+
+		<set name="Seeds" inverse="true">
+			<key column="domain_id"/>
+			<one-to-many class="Seed"/>
+		</set>
+
+		<set name="LicenseDetails" inverse="true">
+			<key column="domain_id"/>
+			<one-to-many class="LicenseDetail"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

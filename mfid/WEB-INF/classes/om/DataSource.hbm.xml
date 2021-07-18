@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="DataSource"
+		table="data_source"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="data_source_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="DataSourceInitailizeClass"
+			column="data_source_initailize_class"
+			type="string"
+			not-null="false"
+			length="150"
+		/>
+		<property
+			name="DataSourceUrl"
+			column="data_source_url"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="DataSourceDesc"
+			column="data_source_desc"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="DataSourceDn"
+			column="data_source_dn"
+			type="string"
+			not-null="false"
+			length="300"
+		/>
+		<property
+			name="DataSourcePassword"
+			column="data_source_password"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="DataSourceFilter"
+			column="data_source_filter"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="DataSourceName"
+			column="data_source_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="DataSourceQuery"
+			column="data_source_query"
+			type="string"
+			not-null="false"
+			length="300"
+		/>
+		<property
+			name="DataSslFlag"
+			column="data_ssl_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DataAdmin"
+			column="data_admin"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="DataSourceOuFilter"
+			column="data_source_ou_filter"
+			type="string"
+			not-null="false"
+			length="1000"
+		/>
+		<property
+			name="DataSourceAttributes"
+			column="data_source_attributes"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+	
+
+		<set name="Domains" inverse="true">
+			<key column="data_source_id"/>
+			<one-to-many class="Domain"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

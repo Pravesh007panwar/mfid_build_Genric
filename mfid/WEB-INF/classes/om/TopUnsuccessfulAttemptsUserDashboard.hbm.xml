@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="TopUnsuccessfulAttemptsUserDashboard"
+		table="top_unsuccessful_attempts_user_dashboard"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="top_unsuccessful_attempts_user_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="UnsuccessfulAttemptsCount"
+			column="unsuccessful_attempts_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Domain"
+			column="domain"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="InsertDate"
+			column="insert_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="SelfEnrollmentLogs"
+		table="self_enrollment_logs"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			type="integer"
+			column="self_enrollment_logs_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="DomainName"
+			column="domain_name"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="AppName"
+			column="app_name"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="Activity"
+			column="activity"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="ActivityTime"
+			column="activity_time"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="ManagerName"
+			column="manager_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

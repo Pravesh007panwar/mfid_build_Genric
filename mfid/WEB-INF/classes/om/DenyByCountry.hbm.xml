@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="DenyByCountry"
+		table="deny_by_country"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="deny_by_country_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="Date"
+			column="date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="Country"
+			column="country"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="CountryCode"
+			column="country_code"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="FailureCount"
+			column="failure_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DomainName"
+			column="domain_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

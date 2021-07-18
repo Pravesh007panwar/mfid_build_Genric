@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="EmergencyAuthenticationPolicy"
+		table="emergency_authentication_policy"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="emergency_authentication_policy_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="EmergencyAuthenticationPolicyDesc"
+			column="emergency_authentication_policy_desc"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="NumberOfHours"
+			column="number_of_hours"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DefaultAssignFlag"
+			column="default_assign_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="emergency_authentication_policy_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

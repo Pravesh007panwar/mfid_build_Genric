@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="IpDetailsDashboard"
+		table="ip_details_dashboard"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="ip_details_dashboard_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="Ip"
+			column="ip"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="IpFailureCount"
+			column="ip_failure_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Domain"
+			column="domain"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="Country"
+			column="country"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="InsertDate"
+			column="insert_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

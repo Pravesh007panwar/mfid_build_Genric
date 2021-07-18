@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="CountryIpLogs"
+		table="country_ip_logs"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			type="integer"
+			column="country_ip_logs_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="CountryName"
+			column="country_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="StartIp"
+			column="start_ip"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="EndIp"
+			column="end_ip"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="LogType"
+			column="log_type"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Response"
+			column="response"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="CreatedBy"
+			column="created_by"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="CreatedDate"
+			column="created_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="Role"
+			column="role"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

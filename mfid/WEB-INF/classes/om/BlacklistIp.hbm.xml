@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="BlacklistIp"
+		table="blacklist_ip"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="blacklist_ip_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="IpStart"
+			column="ip_start"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="IpEnd"
+			column="ip_end"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="CustomAuthInfo"
+		table="custom_auth_info"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="ParamKey"
+			column="param_key"
+			type="string"
+			not-null="true"
+			length="50"
+		/>
+		<property
+			name="ParamValue"
+			column="param_value"
+			type="string"
+			not-null="true"
+			length="500"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

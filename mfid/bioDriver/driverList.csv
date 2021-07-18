@@ -1,0 +1,11 @@
+driverName,driverDescription,32/64 bit,driverLogo,downloadUrl
+HP1,HP Test Soft 11111111,64 bit,http://192.168.1.42/mfid/bioDriver/image/censor.png,https//:192.168.1.42/mfid/bioDriver/111111111111hp.exe
+HP2,HP Test Soft 22222222,64 bit,http://192.168.1.42/mfid/bioDriver/image/censor.png,https//:192.168.1.42/mfid/bioDriver/222222222222hp.exe
+HP3,HP Test Soft 333333333,32 bit,http://192.168.1.42/mfid/bioDriver/image/censor.png,https//:192.168.1.42/mfid/bioDriver/333333333hp.exe
+HP4,HP Test Soft 4444444444,64 bit,http://192.168.1.42/mfid/bioDriver/image/censor1.png,https//:192.168.1.42/mfid/bioDriver/444444444hp.exe
+HP5,HP Test Soft 5555555555555,32 bit,http://192.168.1.42/mfid/bioDriver/image/censor.png,https//:192.168.1.42/mfid/bioDriver/55555555hp.exe
+HP6,HP Test Soft 666666666666,64 bit,http://192.168.1.42/mfid/bioDriver/image/censor1.png,https//:192.168.1.42/mfid/bioDriver/6666666666hp.exe
+HP7,HP Test Soft 7777777777,64 bit,http://192.168.1.42/mfid/bioDriver/image/censor.png,https//:192.168.1.42/mfid/bioDriver/7777777777hp.exe
+HP8,HP Test Soft 888888888,32 bit,http://192.168.1.42/mfid/bioDriver/image/censor1.png,https//:192.168.1.42/mfid/bioDriver/88888888hp.exe
+HP9,HP Test Soft 99999999,64 bit,http://192.168.1.42/mfid/bioDriver/image/censor.png,https//:192.168.1.42/mfid/bioDriver/999999hp.exe
+HP10,HP Test Soft 101010101010,64 bit,http://192.168.1.42/mfid/bioDriver/image/censor1.png,https//:192.168.1.42/mfid/bioDriver/10101010hp.exe

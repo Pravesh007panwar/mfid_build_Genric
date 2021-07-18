@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="Application"
+		table="application"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			type="integer"
+			column="application_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="ApplicationName"
+			column="application_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="NotokenPolicy"
+			column="notoken_policy"
+			type="integer"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="UserNotExistPolicy"
+			column="user_not_exist_policy"
+			type="integer"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="PinCheckPolicy"
+			column="pin_check_policy"
+			type="integer"
+			not-null="false"
+			length="4"
+		/>
+		<property
+			name="MobileAppUptodatePolicy"
+			column="mobile_app_uptodate_policy"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="FullDiskEncryptionPolicy"
+			column="full_disk_encryption_policy"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="ScreenLockPolicy"
+			column="screen_lock_policy"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="DeviceNotRootedPolicy"
+			column="device_not_rooted_policy"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="PassesGoogleSafetyPolicy"
+			column="passes_google_safety_policy"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="FingerPrintPolicy"
+			column="finger_print_policy"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="TouchOrFaceIdPolicy"
+			column="touch_or_face_id_policy"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		
+		        <property
+			name="BlockAndroidOsPolicy"
+			column="block_android_os_policy"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="BlockIphoneOsPolicy"
+			column="block_iphone_os_policy"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="NotifyAndroidOsPolicy"
+			column="notify_android_os_policy"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="NotifyIphoneOsPolicy"
+			column="notify_iphone_os_policy"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<many-to-one
+			name="Domain"
+			column="domain_id"
+			class="Domain"
+			not-null="false"
+		>
+		</many-to-one>
+
+		<set inverse="true" name="UserMappings">
+			<key column="application_id" />
+			<one-to-many class="UserMapping" />
+		</set>
+
+
+
+	</class>	
+</hibernate-mapping>

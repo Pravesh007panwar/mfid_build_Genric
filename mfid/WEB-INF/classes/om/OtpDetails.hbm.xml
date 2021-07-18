@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="OtpDetails"
+		table="otp_details"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="otp_details_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="Otp"
+			column="otp"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="OtpTimeStampStart"
+			column="otp_time_stamp_start"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="OtpTimeStampEnd"
+			column="otp_time_stamp_end"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="Counter"
+			column="counter"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="LastOtp"
+			column="last_otp"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="ActiveStatus"
+			column="active_status"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Description"
+			column="description"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="LastOtpUpdationTime"
+			column="last_otp_updation_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="otp_details_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+		<set name="TransactionDetails" inverse="true">
+			<key column="otp_details_id"/>
+			<one-to-many class="TransactionDetails"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

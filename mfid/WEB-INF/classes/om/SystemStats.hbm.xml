@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="SystemStats"
+		table="system_stats"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="system_stats_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="TotalRam"
+			column="total_ram"
+			type="big_decimal"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="UsedRam"
+			column="used_ram"
+			type="big_decimal"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="TotalCpuProcessor"
+			column="total_cpu_processor"
+			type="big_decimal"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="UsedCpuProcessor"
+			column="used_cpu_processor"
+			type="big_decimal"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="TotalDiskSpace"
+			column="total_disk_space"
+			type="big_decimal"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="UsedDiskSpace"
+			column="used_disk_space"
+			type="big_decimal"
+			not-null="false"
+			length="10"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

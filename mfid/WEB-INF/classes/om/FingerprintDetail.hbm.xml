@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="FingerprintDetail"
+		table="fingerprint_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="fingerprint_detail_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="FingerNumber"
+			column="finger_number"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="FingerImpression"
+			column="finger_impression"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="RegisteredTime"
+			column="registered_time"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<many-to-one
+			name="LicenseDetail"
+			column="license_detail_id"
+			class="LicenseDetail"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

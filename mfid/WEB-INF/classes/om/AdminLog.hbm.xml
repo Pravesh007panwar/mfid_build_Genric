@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="AdminLog"
+		table="admin_log"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="admin_log_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="AdminLogonId"
+			column="admin_logon_id"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="DomainName"
+			column="domain_name"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="AppName"
+			column="app_name"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="ActivityTime"
+			column="activity_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="Activity"
+			column="activity"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="ActivityType"
+			column="activity_type"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="Role"
+			column="role"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

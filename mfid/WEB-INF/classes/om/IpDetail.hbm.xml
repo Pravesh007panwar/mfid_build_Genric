@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="IpDetail"
+		table="ip_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="ip_detail_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="IpAddress"
+			column="ip_address"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="LastIpAddress"
+			column="last_ip_address"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="ip_detail_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

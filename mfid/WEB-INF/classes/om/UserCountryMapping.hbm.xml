@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="UserCountryMapping"
+		table="user_country_mapping"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="user_country_mapping_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserId"
+			column="user_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Country"
+			column="country"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="FromTimestamp"
+			column="from_timestamp"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="EndTimestamp"
+			column="end_timestamp"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

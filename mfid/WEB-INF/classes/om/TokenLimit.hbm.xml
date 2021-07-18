@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="TokenLimit"
+		table="token_limit"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			type="integer"
+			column="token_limit_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="HardTokenLimit"
+			column="hard_token_limit"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="BioTokenLimit"
+			column="bio_token_limit"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="MobileTokenLimit"
+			column="mobile_token_limit"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="SmsTokenLimit"
+			column="sms_token_limit"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="PushTokenLimit"
+			column="push_token_limit"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="U2fTokenLimit"
+			column="u2f_token_limit"
+			type="integer"
+			not-null="false"
+			length="15"
+		/>
+
+		<set inverse="true" name="Domains">
+			<key column="token_limit_id" />
+			<one-to-many class="Domain" />
+		</set>
+
+		<set inverse="true" name="Organisations">
+			<key column="token_limit_id" />
+			<one-to-many class="Organisation" />
+		</set>
+
+
+
+	</class>	
+</hibernate-mapping>

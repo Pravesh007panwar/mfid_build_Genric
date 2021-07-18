@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="DeviceDetail"
+		table="device_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="device_detail_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="DeviceId"
+			column="device_id"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="PrivateKey"
+			column="private_key"
+			type="string"
+			not-null="false"
+			length="600"
+		/>
+		<property
+			name="DeviceKey"
+			column="device_key"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="ActivationTime"
+			column="activation_time"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="MobileType"
+			column="mobile_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="Ip"
+			column="ip"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="IpType"
+			column="ip_type"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="AppVersion"
+			column="app_version"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="OsVersion"
+			column="os_version"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<many-to-one
+			name="LicenseDetail"
+			column="license_detail_id"
+			class="LicenseDetail"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

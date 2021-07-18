@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="MailTemplates"
+		table="mail_templates"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			type="integer"
+			column="mail_templates_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="MailTemplatesBody"
+			column="mail_templates_body"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="MailTemplatesTypes"
+			column="mail_templates_types"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="MailTemplatesSubject"
+			column="mail_templates_subject"
+			type="string"
+			not-null="false"
+			length="400"
+		/>
+		<property
+			name="MailTemplatesAppAssignFlag"
+			column="mail_templates_app_assign_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="MailTemplatesTypesId"
+			column="mail_templates_types_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="MailTemplatesDomainId"
+			column="mail_templates_domain_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

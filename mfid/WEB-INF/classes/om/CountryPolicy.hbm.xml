@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="CountryPolicy"
+		table="country_policy"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="country_policy_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="CountryPolicyDescription"
+			column="country_policy_description"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="CountryNames"
+			column="country_names"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="DefaultAssignFlag"
+			column="default_assign_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="CountryPolicyResponse"
+			column="country_policy_response"
+			type="string"
+			not-null="false"
+			length="7"
+		/>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="country_policy_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

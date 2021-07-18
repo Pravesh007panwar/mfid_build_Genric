@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="NetworkTimePolicyMapping"
+		table="network_time_policy_mapping"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="network_time_policy_mapping_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="IpA"
+			column="ipA"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="IpB"
+			column="ipB"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="Date1"
+			column="date1"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="Date2"
+			column="date2"
+			type="string"
+			not-null="false"
+			length="15"
+		/>
+		<property
+			name="Time1"
+			column="time1"
+			type="string"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="Time2"
+			column="time2"
+			type="string"
+			not-null="false"
+			length="7"
+		/>
+		<property
+			name="NetworkTimeRuleType"
+			column="network_time_rule_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="NetworkTimePolicyResponse"
+			column="network_time_policy_response"
+			type="string"
+			not-null="false"
+			length="7"
+		/>
+		<many-to-one
+			name="NetworkTimePolicy"
+			column="network_time_policy_id"
+			class="NetworkTimePolicy"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="Policy"
+		table="policy"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="policy_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="PolicyReuseFlag"
+			column="policy_reuse_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="PolicyExpirationTime"
+			column="policy_expiration_time"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="PolicyDesc"
+			column="policy_desc"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="PolicyType"
+			column="policy_type"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DefaultAssignFlag"
+			column="default_assign_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="policy_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+		<set name="PolicyMappings" inverse="true">
+			<key column="policy_id"/>
+			<one-to-many class="PolicyMapping"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

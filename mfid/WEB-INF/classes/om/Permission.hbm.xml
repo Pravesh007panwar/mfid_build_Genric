@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="Permission"
+		table="permission"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="permission_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="PermissionType"
+			column="permission_type"
+			type="string"
+			not-null="false"
+			length="150"
+		/>
+		<many-to-one
+			name="Role"
+			column="role_id"
+			class="Role"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

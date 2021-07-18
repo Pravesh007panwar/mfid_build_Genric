@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="CbsToken"
+		table="cbs_token"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="cbs_token_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="ApplicationId"
+			column="application_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Token"
+			column="token"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="TokenTimestamp"
+			column="token_timestamp"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

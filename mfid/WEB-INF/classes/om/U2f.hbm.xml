@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="U2f"
+		table="u2f"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="string"
+			column="u2f_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="U2fData"
+			column="u2f_data"
+			type="string"
+			not-null="true"
+		/>
+		<property
+			name="CreationDate"
+			column="creation_date"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<many-to-one
+			name="UserDetail"
+			column="user_id"
+			class="UserDetail"
+			not-null="true"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="UserDetail"
+		table="user_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="user_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="FirstName"
+			column="first_name"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="MiddleName"
+			column="middle_name"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="LastName"
+			column="last_name"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<!-- please tell Joe Hudson that the type 'tinytext' could not be resolved.. defaulting to java.lang.String -->
+		<property
+			name="EmailId"
+			column="email_id"
+			type="java.lang.String"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="MobileNumber"
+			column="mobile_number"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Password"
+			column="password"
+			type="string"
+			not-null="false"
+			length="400"
+		/>
+		<property
+			name="LastFileDate"
+			column="last_file_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="RowHashed"
+			column="row_hashed"
+			type="string"
+			not-null="false"
+			length="150"
+		/>
+		<property
+			name="RoleFlag"
+			column="role_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="FirstLoginFlag"
+			column="first_login_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="PasswordFlag"
+			column="password_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="EmpId"
+			column="emp_id"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="AdDomainName"
+			column="ad_domain_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="FailureCount"
+			column="failure_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="SessionId"
+			column="session_id"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<many-to-one
+			name="Domain"
+			column="domain_id"
+			class="Domain"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="user_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+		<set name="UserCountryMappings" inverse="true">
+			<key column="user_id"/>
+			<one-to-many class="UserCountryMapping"/>
+		</set>
+
+		<set name="TransactionDetails" inverse="true">
+			<key column="user_id"/>
+			<one-to-many class="TransactionDetails"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

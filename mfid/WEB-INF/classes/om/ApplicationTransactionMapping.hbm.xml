@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="ApplicationTransactionMapping"
+		table="application_transaction_mapping"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="app_mapping_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="AppId"
+			column="app_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="AppType"
+			column="app_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

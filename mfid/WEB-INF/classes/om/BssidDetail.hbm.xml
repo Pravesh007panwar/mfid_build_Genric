@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="BssidDetail"
+		table="bssid_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="bssid_detail_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="Bssid"
+			column="bssid"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Ssid"
+			column="ssid"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="ActivationTime"
+			column="activation_time"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<many-to-one
+			name="LicenseDetail"
+			column="license_detail_id"
+			class="LicenseDetail"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

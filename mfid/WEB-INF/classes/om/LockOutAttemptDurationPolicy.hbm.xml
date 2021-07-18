@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="LockOutAttemptDurationPolicy"
+		table="lock_out_attempt_duration_policy"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="lock_out_attempt_duration_policy_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="LockOutAttemptDurationPolicyDesc"
+			column="lock_out_attempt_duration_policy_desc"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="NumberOfAttempts"
+			column="number_of_attempts"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DurationOfLockout"
+			column="duration_of_lockout"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DefaultAssignFlag"
+			column="default_assign_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="lock_out_attempt_duration_policy_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

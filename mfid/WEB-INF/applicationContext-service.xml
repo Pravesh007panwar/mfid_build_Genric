@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<bean id="manager"
+		class="com.mfid.service.common.impl.BaseManagerImpl">
+		<property name="baseDao" ref="baseDao" /> 
+	</bean>
+	<bean id="lookupManager"
+		class="com.mfid.service.common.impl.LookupManagerImpl">
+		<property name="lookupDao" ref="lookupDao" />
+	</bean>
+	<bean id="loginManager"
+		class="com.mfid.service.impl.LoginManagerImpl">
+		<property name="loginDao" ref="loginDao" />
+	</bean>
+	<bean id="adminManager" 
+		class="com.mfid.service.impl.AdminManagerImpl">
+		<property name="adminDao" ref="adminDao" />
+		<property name="loginDao" ref="loginDao" />
+		<property name="tokenDao" ref="tokenDao" />
+	</bean>
+	
+	<bean id="tokenManager" class="com.mfid.service.impl.TokenManagerImpl">
+	<property name="tokenDao" ref="tokenDao" />
+	<property name="adminDao" ref="adminDao" />
+	<property name="loginDao" ref="loginDao" />
+	</bean>
+	       
+	<bean id="lockedUnlockedUserReportManager"
+		class="com.mfid.service.impl.LockedUnlockedUserReportManagerImpl">
+		<property name="lokedUnlockedUsersReportDao" ref="lokedUnlockedUsersReportDao" />
+	</bean>
+	 <bean id="otpmfidManager" 	class="com.mfid.service.impl.OTPMFIDManagerImpl">
+		
+		<property name="tokenDao" ref="tokenDao" />
+		<property name="adminDao" ref="adminDao" />
+		<property name="policyDao" ref="policyDao" />
+	
+	</bean> 
+	<bean id="reportManager" class="com.mfid.service.impl.ReportManagerImpl">
+<property name="reportDao" ref="reportDao" />
+</bean>
+
+<bean id="policyManager" class="com.mfid.service.impl.PolicyManagerImpl">
+<property name="policyDao" ref="policyDao" />
+<property name="adminDao" ref="adminDao" />
+</bean>
+	
+	
+	
+</beans>     

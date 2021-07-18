@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="Pki"
+		table="pki"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="pki_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="PkiPublicKey"
+			column="pki_public_key"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="PkiPrivateKey"
+			column="pki_private_key"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="PkiModulus"
+			column="pki_modulus"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="PkiExponent"
+			column="pki_exponent"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

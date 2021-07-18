@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="LicenseDetail"
+		table="license_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="license_detail_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="LicenseDetailKey"
+			column="license_detail_key"
+			type="string"
+			not-null="false"
+			length="75"
+		/>
+		<property
+			name="LicenseDetailGenerationTime"
+			column="license_detail_generation_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="LicenseDetailActivationKey"
+			column="license_detail_activation_key"
+			type="string"
+			not-null="false"
+			length="75"
+		/>
+		<property
+			name="LicenseType"
+			column="license_type"
+			type="string"
+			not-null="false"
+			length="75"
+		/>
+		<property
+			name="DeassociateStatus"
+			column="deassociate_status"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="LicenseOtpSerial"
+			column="license_otp_serial"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="LicenseFlag"
+			column="license_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="LicensePrivateKey"
+			column="license_private_key"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="LicensePass"
+			column="license_pass"
+			type="string"
+			not-null="false"
+			length="12"
+		/>
+		<property
+			name="Ip"
+			column="ip"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="LicenseLastAcceptTime"
+			column="license_last_accept_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="LicenseMessageGenerationTime"
+			column="license_message_generation_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="AvilableFlag"
+			column="avilable_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DeviceToken"
+			column="device_token"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="MobileType"
+			column="mobile_type"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="ActiveStatus"
+			column="active_status"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Description"
+			column="description"
+			type="binary"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="OnedayFlag"
+			column="oneday_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="QrXml"
+			column="qr_xml"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="Password"
+			column="password"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="LicenseRegistrationFlag"
+			column="license_registration_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<many-to-one
+			name="Domain"
+			column="domain_id"
+			class="Domain"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="BssidDetails" inverse="true">
+			<key column="license_detail_id"/>
+			<one-to-many class="BssidDetail"/>
+		</set>
+
+		<set name="DeviceDetails" inverse="true">
+			<key column="license_detail_id"/>
+			<one-to-many class="DeviceDetail"/>
+		</set>
+
+		<set name="UserMappings" inverse="true">
+			<key column="license_detail_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+		<set name="FingerprintDetails" inverse="true">
+			<key column="license_detail_id"/>
+			<one-to-many class="FingerprintDetail"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

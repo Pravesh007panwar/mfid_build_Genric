@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="UserTilesReportDashboard"
+		table="user_tiles_report_dashboard"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="user_tiles_report_dashboard_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="BioSuccessCount"
+			column="bio_success_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="BioUnsuccessCount"
+			column="bio_unsuccess_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="PushSuccessCount"
+			column="push_success_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="PushUnsuccessCount"
+			column="push_unsuccess_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="OtpSuccessCount"
+			column="otp_success_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="OtpUnsuccessCount"
+			column="otp_unsuccess_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DomainName"
+			column="domain_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="InsertDate"
+			column="insert_date"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="LogReport"
+		table="log_report"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			type="integer"
+			column="log_report_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="AppName"
+			column="app_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="DomainName"
+			column="domain_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="AuthType"
+			column="auth_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="LicenseKey"
+			column="license_key"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		<property
+			name="Result"
+			column="result"
+			type="string"
+			not-null="false"
+			length="70"
+		/>
+		<property
+			name="MatchTimeStampStart"
+			column="match_time_stamp_start"
+			type="big_decimal"
+			not-null="false"
+			length="17"
+		/>
+		<property
+			name="MatchTimeStampEnd"
+			column="match_time_stamp_end"
+			type="big_decimal"
+			not-null="false"
+			length="17"
+		/>
+		<property
+			name="LastFileDate"
+			column="last_file_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="IpAddress"
+			column="ip_address"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+		<property
+			name="CountryCode"
+			column="country_code"
+			type="string"
+			not-null="false"
+			length="6"
+		/>
+		<property
+			name="Country"
+			column="country"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="RoleId"
+			column="role_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="TileType"
+			column="tile_type"
+			type="string"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="SystemName"
+			column="system_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="LogsType"
+			column="logs_type"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

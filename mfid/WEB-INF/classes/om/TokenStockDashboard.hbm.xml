@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="TokenStockDashboard"
+		table="token_stock_dashboard"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="token_stock_dashboard_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="TotalHardTokens"
+			column="total_hard_tokens"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="TotalMobileTokens"
+			column="total_mobile_tokens"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="TotalSoftTokens"
+			column="total_soft_tokens"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="TotalPushToken"
+			column="total_push_token"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Domain"
+			column="domain"
+			type="string"
+			not-null="false"
+			length="30"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

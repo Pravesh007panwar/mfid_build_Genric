@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="UserAttempts"
+		table="user_attempts"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="user_attempts_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="Success"
+			column="success"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="UserLocked"
+			column="user_locked"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="OtpIncorrect"
+			column="otp_incorrect"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="TokenLocked"
+			column="token_locked"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="OtpAlreadyUsed"
+			column="otp_already_used"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Other"
+			column="other"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DomainName"
+			column="domain_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="InsertDate"
+			column="insert_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

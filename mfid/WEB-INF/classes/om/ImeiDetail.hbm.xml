@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="ImeiDetail"
+		table="imei_detail"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="imei_detail_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="ImeiNumber"
+			column="imei_number"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="StartTime"
+			column="start_time"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="CorrectionCount"
+			column="correction_count"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="ActiveStatus"
+			column="active_status"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="LastOtp"
+			column="last_otp"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="SecondLastOtp"
+			column="second_last_otp"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="ActivatedBy"
+			column="activated_by"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="ErrorCounter"
+			column="error_counter"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="ExpiryTime"
+			column="expiry_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="LastResyncDate"
+			column="last_resync_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="LockReason"
+			column="lock_reason"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="LockDate"
+			column="lock_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="ResyncCounter"
+			column="resync_counter"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Description"
+			column="description"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="LastOtpUpdationTime"
+			column="last_otp_updation_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="DeassociateStatus"
+			column="deassociate_status"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="ImeiOtpSerial"
+			column="imei_otp_serial"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<many-to-one
+			name="Domain"
+			column="domain_id"
+			class="Domain"
+			not-null="false"
+		>
+		</many-to-one>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="imei_detail_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

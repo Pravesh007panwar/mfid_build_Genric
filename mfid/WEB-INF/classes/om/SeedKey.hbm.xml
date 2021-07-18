@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="SeedKey"
+		table="seed_key"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="key_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="KeyModulus"
+			column="key_modulus"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="KeyExponent"
+			column="key_exponent"
+			type="string"
+			not-null="false"
+			length="1000"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

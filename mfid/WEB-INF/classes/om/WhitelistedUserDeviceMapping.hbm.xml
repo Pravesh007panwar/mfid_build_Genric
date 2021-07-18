@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="WhitelistedUserDeviceMapping"
+		table="whitelisted_user_device_mapping"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="whitelisted_user_device_mapping_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="DeviceId"
+			column="device_id"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="CreationTime"
+			column="creation_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<many-to-one
+			name="User"
+			column="user_id"
+			class="UserDetail"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

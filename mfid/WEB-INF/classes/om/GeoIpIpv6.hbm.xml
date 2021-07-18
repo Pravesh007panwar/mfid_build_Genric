@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="GeoIpIpv6"
+		table="geo_ip_ipv6"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="geo_ip_ipv6_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="IpStart"
+			column="ip_start"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="IpEnd"
+			column="ip_end"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="GeonameId"
+			column="geoname_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="RegisteredCountryGeonameId"
+			column="registered_country_geoname_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="RepresentedCountryGeonameId"
+			column="represented_country_geoname_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="IsAnonymousProxy"
+			column="is_anonymous_proxy"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="IsSatelliteProvider"
+			column="is_satellite_provider"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="PostalCode"
+			column="postal_code"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Latitude"
+			column="latitude"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Longitude"
+			column="longitude"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

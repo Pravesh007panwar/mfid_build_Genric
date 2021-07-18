@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="ResyncOffset"
+		table="resync_offset"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<property
+			name="Id"
+			column="id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Offset"
+			column="offset"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

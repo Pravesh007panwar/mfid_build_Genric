@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="SecureLogin"
+		table="secure_login"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="secure_login_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Domain"
+			column="domain"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="Application"
+			column="application"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="SmsTime"
+			column="sms_time"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+		<property
+			name="Otp"
+			column="otp"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="PinCheckPolicy"
+		table="pin_check_policy"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="pin_check_policy_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="PinCheckPolicyStatus"
+			column="pin_check_policy_status"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+	
+
+		<set name="UserMappings" inverse="true">
+			<key column="pin_check_policy_id"/>
+			<one-to-many class="UserMapping"/>
+		</set>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="GeoCityIpv6"
+		table="geo_city_ipv6"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="geo_city_ipv6_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="GeonameId"
+			column="geoname_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="LocaleCode"
+			column="locale_code"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="ContinentCode"
+			column="continent_code"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="ContinentName"
+			column="continent_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="CountryIsoCode"
+			column="country_iso_code"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="CountryName"
+			column="country_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Subdivision1IsoCode"
+			column="subdivision_1_iso_code"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Subdivision1Name"
+			column="subdivision_1_name"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="Subdivision2IsoCode"
+			column="subdivision_2_iso_code"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="Subdivision2Name"
+			column="subdivision_2_name"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="CityName"
+			column="city_name"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="MetroCode"
+			column="metro_code"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="TimeZone"
+			column="time_zone"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

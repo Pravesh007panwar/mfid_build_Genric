@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="TokenRevalidationPolicy"
+		table="token_revalidation_policy"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="token_revalidation_policy_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="TokenRevalidationPolicyDesc"
+			column="token_revalidation_policy_desc"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="NumberOfDays"
+			column="number_of_days"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="DefaultAssignFlag"
+			column="default_assign_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

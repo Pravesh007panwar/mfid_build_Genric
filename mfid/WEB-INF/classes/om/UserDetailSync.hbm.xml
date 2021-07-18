@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="UserDetailSync"
+		table="user_detail_sync"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="user_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UserLogonId"
+			column="user_logon_id"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="FirstName"
+			column="first_name"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="MiddleName"
+			column="middle_name"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="LastName"
+			column="last_name"
+			type="string"
+			not-null="false"
+			length="80"
+		/>
+		<property
+			name="EmailId"
+			column="email_id"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="MobileNumber"
+			column="mobile_number"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="RowHashed"
+			column="row_hashed"
+			type="string"
+			not-null="false"
+			length="150"
+		/>
+		<many-to-one
+			name="Domain"
+			column="domain_id"
+			class="Domain"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

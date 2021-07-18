@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="SystemTiles"
+		table="system_tiles"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="system_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="SystemName"
+			column="system_name"
+			type="string"
+			not-null="true"
+			length="100"
+		/>
+		<property
+			name="Password"
+			column="Password"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="Bio"
+			column="Bio"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="Push"
+			column="Push"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="Otp"
+			column="OTP"
+			type="integer"
+			not-null="false"
+			length="2"
+		/>
+		<property
+			name="CreatedDate"
+			column="created_date"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="UpdatedDate"
+			column="updated_date"
+			type="timestamp"
+			not-null="false"
+			length="19"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- Hibernate SessionFactory -->
+	<!-- Hibernate SessionFactory -->
+
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- Generic Dao - can be used when doing standard CRUD -->
+	<bean id="baseDao"
+		class="com.mfid.dataaccess.common.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- LookupDao: Hibernate implementation -->
+	<bean id="lookupDao" class="com.mfid.dataaccess.common.dao.impl.LookupDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>          
+	
+	
+	
+		<bean id="loginDao" class="com.mfid.dataaccess.common.dao.impl.LoginDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="adminDao" class="com.mfid.dataaccess.common.dao.impl.AdminDaoImpl">
+	     <constructor-arg>  
+			<ref bean="dataSource"/>
+		</constructor-arg>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="tokenDao" class="com.mfid.dataaccess.common.dao.impl.TokenDaoImpl">
+	<constructor-arg>  
+			<ref bean="dataSource"/>
+		</constructor-arg>
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="lokedUnlockedUsersReportDao" class="com.mfid.dataaccess.common.dao.impl.LockedUnlockedReportDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean> 
+         
+	<bean id="reportDao" class="com.mfid.dataaccess.common.dao.impl.ReportDaoImpl">
+		<constructor-arg>  
+			<ref bean="dataSource"/>
+		</constructor-arg>
+		<property name="sessionFactory" ref="sessionFactory" />
+   </bean>
+
+<bean id="policyDao" class="com.mfid.dataaccess.common.dao.impl.PolicyDaoImpl">
+<constructor-arg>  
+			<ref bean="dataSource"/>
+		</constructor-arg>
+<property name="sessionFactory" ref="sessionFactory" />
+</bean>
+
+<bean id="databaseUtility" class="com.mfid.dataaccess.common.jdbc.template.DatabaseUtilityRowMapper">
+<constructor-arg>  
+			<ref bean="dataSource"/>
+		</constructor-arg>
+</bean> 
+	
+	
+	<!-- Generic Dao - can be used when doing standard CRUD -->
+	<!-- LookupDao: Hibernate implementation -->
+
+	<!-- Add new Daos here -->
+	
+</beans>

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="TokenDetailDashbord"
+		table="token_detail_dashbord"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="token_detail_dashboard_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="FreeHardToken"
+			column="freeHardToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="FreeMobileToken"
+			column="freeMobileToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="FreeBioToken"
+			column="freeBioToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="FreePushToken"
+			column="freePushToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="UsedHardToken"
+			column="usedHardToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="UsedMobileToken"
+			column="usedMobileToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="UsedBioToken"
+			column="usedBioToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="UsedPushToken"
+			column="usedPushToken"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="Domain"
+			column="domain"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

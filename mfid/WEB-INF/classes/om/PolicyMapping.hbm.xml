@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="PolicyMapping"
+		table="policy_mapping"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="policy_mapping_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="DomainId"
+			column="domain_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="ApplicationId"
+			column="application_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="UseFlag"
+			column="use_flag"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="HardtokenOfflineAuthenticationPolicyId"
+			column="hardToken_offline_authentication_policy_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="LockOutAttemptDurationPolicyId"
+			column="lock_out_attempt_duration_policy_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="EmergencyAuthenticationPolicyId"
+			column="emergency_authentication_policy_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="TokenActivationPolicyId"
+			column="token_activation_policy_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="NetworkTimePolicyId"
+			column="network_time_policy_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="CountryPolicyId"
+			column="country_policy_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<property
+			name="TokenRevalidationPolicyId"
+			column="token_revalidation_policy_id"
+			type="integer"
+			not-null="false"
+			length="11"
+		/>
+		<many-to-one
+			name="Policy"
+			column="policy_id"
+			class="Policy"
+			not-null="false"
+		>
+		</many-to-one>
+
+
+	</class>	
+</hibernate-mapping>

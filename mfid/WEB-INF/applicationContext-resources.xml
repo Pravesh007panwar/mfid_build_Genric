@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+	<!-- For mail settings and future properties files -->
+	<!-- bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="locations"> <list> <value>classpath:mail.properties</value> 
+		</list> </property> </bean -->
+
+
+	<bean class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close" id="dataSource">
+
+		<!-- sql server -->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+       
+         <property name="url" value="jdbc:mysql://localhost/mfid_common?failOverReadOnly=false" />    
+
+		<!-- property name="url" value="jdbc:oracle:thin:@192.168.1.254:1521:hardtoken" 
+			/ -->
+
+		<property name="username" value="root" />
+		<property name="password" value="123456789" />
+		 <property name="maxActive" value="500" />
+		<property name="maxIdle" value="500" />
+		<property name="maxWait" value="1000" />
+		<property name="defaultAutoCommit" value="true" />
+		<property name="removeAbandoned" value="true" />
+		<property name="removeAbandonedTimeout" value="60" />
+	</bean>
+	<bean class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+		id="sessionFactory">
+		<property name="dataSource" ref="dataSource" />
+
+
+
+		<property name="mappingResources">
+			<list>
+			<value>/om/BlacklistIp.hbm.xml</value>
+			<value>/om/UserPopImapMapping.hbm.xml</value>
+			<value>/om/GeoIpIpv6.hbm.xml</value>
+			<value>/om/GeoCityIpv6.hbm.xml</value>
+			<value>/om/WhitelistedUserDeviceMapping.hbm.xml</value>
+			<value>/om/U2f.hbm.xml</value>
+		    <value>/om/BioEnrollment.hbm.xml</value>
+			<value>/om/DeviceOs.hbm.xml</value>
+			<value>/om/CustomAuthInfo.hbm.xml</value>
+			<value>/om/GroupUser.hbm.xml</value>
+			<value>/om/UserCountryLog.hbm.xml</value>
+			<value>/om/CountryIpLogs.hbm.xml</value>
+			<value>/om/UserTilesReportDashboard.hbm.xml</value>
+			<value>/om/SelfEnrollmentLogs.hbm.xml</value>
+			<value>/om/SystemTiles.hbm.xml</value>
+			<value>/om/TokenRevalidationPolicy.hbm.xml</value>
+			<value>/om/CbsToken.hbm.xml</value>
+			<value>/om/Pki.hbm.xml</value>
+			<value>/om/Udid.hbm.xml</value>
+			<value>/om/FingerprintDetail.hbm.xml</value>
+			<value>/om/UserCountryMapping.hbm.xml</value>
+			<value>/om/MailTemplates.hbm.xml</value>
+			<value>/om/BssidDetail.hbm.xml</value>
+			<value>/om/CountryPolicy.hbm.xml</value>
+			<value>/om/DenyCountryDashboard.hbm.xml</value>
+			<value>/om/GeoCity.hbm.xml</value>
+			<value>/om/GeoIp.hbm.xml</value>
+			 <value>/om/TransactionApp.hbm.xml</value>
+			  <value>/om/ApplicationTransactionMapping.hbm.xml</value>
+			 <value>/om/AuthenticationDashboard.hbm.xml</value>
+			 <value>/om/TokenStockDashboard.hbm.xml</value>
+			<value>/om/TopUnsuccessfulAttemptsUserDashboard.hbm.xml</value>
+			 <value>/om/NeverLoggedinDashboard.hbm.xml</value>
+				 <value>/om/UserAttempts.hbm.xml</value>
+				<value>/om/IpDetailsDashboard.hbm.xml</value>
+				<value>/om/LoginTimeDashboard.hbm.xml</value>
+				<value>/om/TokenDetailDashbord.hbm.xml</value>
+				<value>/om/NetworkTimePolicy.hbm.xml</value>
+				<value>/om/NetworkTimePolicyMapping.hbm.xml</value>
+				<value>/om/Properties.hbm.xml</value>
+				<value>/om/LogsDetail.hbm.xml</value>
+				
+				<value>/om/Application.hbm.xml</value>
+				<value>/om/DataSource.hbm.xml</value>
+				<value>/om/DeassociationReason.hbm.xml</value>
+					
+				<value>/om/TokenActivationPolicy.hbm.xml</value>
+
+				<value>/om/Domain.hbm.xml</value>
+				<value>/om/DomainPolicy.hbm.xml</value>
+
+				
+				
+
+				<value>/om/Organisation.hbm.xml</value>
+				<value>/om/Token.hbm.xml</value>
+				
+				<value>/om/TokenLimit.hbm.xml</value>
+				
+				<value>/om/TransactionDetails.hbm.xml</value>
+				<value>/om/TransactionStatus.hbm.xml</value>
+				<value>/om/UserDetail.hbm.xml</value>
+					<value>/om/UserDetailSync.hbm.xml</value>
+				<value>/om/UserMapping.hbm.xml</value>
+				<value>/om/Role.hbm.xml</value>
+				<value>/om/Schedular.hbm.xml</value>
+				<value>/om/Seed.hbm.xml</value>
+				<value>/om/SeedKey.hbm.xml</value>
+				<value>/om/IpDetail.hbm.xml</value>
+				<value>/om/LicenseDetail.hbm.xml</value>
+				<value>/om/LockOutAttemptDurationPolicy.hbm.xml</value>
+				<value>/om/OtpDetails.hbm.xml</value>
+				<value>/om/Permission.hbm.xml</value>
+				<value>/om/PinCheckPolicy.hbm.xml</value>
+				<value>/om/AuthenticationType.hbm.xml</value>
+				<value>/om/EmergencyAuthenticationPolicy.hbm.xml</value>
+				<value>/om/HardtokenOfflineAuthenticationPolicy.hbm.xml</value>
+				
+				<value>/om/Policy.hbm.xml</value>
+				<value>/om/PolicyMapping.hbm.xml</value>
+				<value>/om/RadiusServerCredential.hbm.xml</value>
+				<value>/om/LogReport.hbm.xml</value>
+			    <value>/om/AdminLog.hbm.xml</value>
+			     <value>/om/DenyByCountry.hbm.xml</value>
+			     <value>/om/DeviceDetail.hbm.xml</value>
+				
+			
+
+
+
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.query.substitutions">true 'Y', false 'N'</prop>
+				 <prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.jdbc.batch_size">200</prop>
+				<!-- Create/update the database tables automatically when the JVM starts 
+					up <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<!-- Turn batching off for better error messages under PostgreSQL <prop 
+					key="hibernate.jdbc.batch_size">0</prop> -->
+			</props>
+		</property>
+
+	</bean>
+</beans>

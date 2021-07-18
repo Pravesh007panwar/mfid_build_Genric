@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.innefu.mfid.dataaccess.om">
+	<class
+		name="Udid"
+		table="udid"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="udid_id"
+		>
+			<generator class="identity"/>
+		</id>
+
+		<property
+			name="UdidMac"
+			column="udid_mac"
+			type="string"
+			not-null="false"
+			length="25"
+		/>
+		<property
+			name="UdidPrivateKey"
+			column="udid_private_key"
+			type="string"
+			not-null="false"
+		/>
+
+
+	</class>	
+</hibernate-mapping>
